@@ -112,31 +112,76 @@ The framework does not introduce a custom terrain format.
 
 # Asset Mapping
 
-Unreal Engine does not contain native Creation Engine assets.
+Unreal Engine assets are never imported into Creation Engine.
 
-Instead, placed objects reference abstract Asset IDs.
+Objects placed in Unreal Engine reference existing Creation Engine records through their Base Form ID.
+
+The Unreal Engine asset itself is only a placeholder used during world authoring.
 
 Example:
 
 ```text
-AssetID = ElvenStone01
+UE5 Asset:
+000ABC12.ueasset
+
+BaseFormID:
+000ABC12
 ```
 
-During import:
+During compilation:
 
 ```text
-AssetID
-    ↓
-STAT
-    ↓
-ElvenStone01.nif
-    ↓
+BaseFormID
+        ↓
 REFR
+        ↓
+STAT
+        ↓
+Creation Engine Asset
+        ↓
+ElvenStone01.nif
 ```
 
-The implementation of the mapping system is intentionally unspecified.
+The compiler does not analyze Unreal Engine meshes, materials, or textures.
 
-Each project defines its own Asset ID mapping.
+It only uses the referenced Base Form ID to create the corresponding Creation Engine reference.
+
+This allows projects to use any placeholder assets inside Unreal Engine while keeping the final world fully dependent on native Creation Engine assets.
+
+Asset references are defined by the project author.
+
+The same Unreal Engine placeholder can represent any Creation Engine object, as long as it contains the correct Base Form ID reference.
+
+Example:
+
+```text
+UE5 Placeholder:
+SimpleCube.ueasset
+
+BaseFormID:
+000ABC12
+```
+
+Result:
+
+```text
+REFR
+    ↓
+STAT 000ABC12
+    ↓
+meshes\architecture\elven\ElvenStone01.nif
+```
+
+The compiler only preserves world placement data:
+
+- Position
+- Rotation
+- Scale
+- Base Form ID
+- Metadata
+- Persistent ID
+
+The final visual representation is always provided by Creation Engine assets.
 
 ---
 
@@ -150,14 +195,40 @@ Artists may use any placeholder assets during world creation, including:
 * Fab / Marketplace assets
 * Quixel assets
 
-The imported data consists only of:
+Placeholder assets exist only for world authoring inside Unreal Engine 5.
+
+The compiler does not import Unreal Engine meshes, materials, or textures into Creation Engine.
+
+The compiled data consists only of:
 
 * Transform
-* Asset ID
+* Base Form ID
 * Metadata
 * Persistent ID
 
-Placeholder meshes themselves are never imported.
+The Unreal Engine placeholder is irrelevant after compilation.
+
+Example:
+
+```text
+UE5 Placeholder:
+SimpleCube.ueasset
+
+BaseFormID:
+000ABC12
+```
+
+During compilation:
+
+```text
+BaseFormID
+        ↓
+REFR
+        ↓
+Creation Engine Asset
+```
+
+The final visual representation is always provided by the native Creation Engine asset referenced by the Base Form ID.
 
 ---
 
