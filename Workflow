@@ -1,0 +1,19 @@
+ESM Compiler requires particular workflow in Landscape creation.
+
+Start project in Unreal Engine 5
+Create your Landscape, no matter what do you want, but scale MUST be X: 182.88 Y: 182.88 Z: 100 for square shape of whole worldspace, for shape of Worldspace (Vanilla skyrim rectangle) you need to create X: 178.29161 Y: 181.91238 Z: 100.
+Quads per section 63x63
+Sections per Component 2x2
+Components 16x16
+Resolution is directly tied with size of your worldspace. Resolution = (Cell number x 32) + 1
+When you created your base terrain you can work on it, morphing and changing to your liking.
+If you want to paint textures you can use whatever you want. But here comes CK logic. You need to have Base Layer with FormID from your master .esm. For example if you use only X.esm you take FormID and adds 00x, so CK will understand your textures.
+Example for FormID: 
+LTEX local FormID in X.esm: 0013428
+UE5 Base Layer material name: 00013428
+After your worldspace is completed open Window again, find ESM Compiler and use it
+
+There you need to choose your output, there will be your .esm be placed. Metadata is name of your worldspace in CK, and then you ned to check browse .esm to use master for your world .esm textures. 
+IMPORTANT: Master order is important. Higher master have different prefix. First master in order will have 00 prefix, next one 01, etc, etc. It does not follow xEdit logic for plugins.
+Compile your worldspace.
+If Compile worked perfectly, then you are free to import it to CK, it's improtant to remember to check your texture master with your worldspace .esm.
