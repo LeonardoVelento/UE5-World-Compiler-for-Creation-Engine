@@ -1,0 +1,7 @@
+Download and install Unreal Engine 5.8.1 from Epic
+Download ESMCompiler.zip
+Unpack ESMCompiler.zip to wherever you want
+Unpacked ESMCompiler.zip need to be put in Epic Games/UE_5.8/Engine/Plugins/Editor
+Start Unreal Engine 5 and create new project
+Open plugins (Window -> Plugins at the bottom of Window)
+Seatch for ESMCompiler and add as your plugin
