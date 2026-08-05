@@ -6,7 +6,7 @@
 #include <optional>
 #include <vector>
 
-// Engine-independent logical terrain data. This header deliberately contains
+// Terrain data used before LAND serialization. It contains no Unreal or binary record types.
 // no Unreal Engine types, Creation Engine record types, or binary layouts.
 namespace land_ir {
 
@@ -24,8 +24,8 @@ struct HeightPatch {
     static constexpr std::size_t VertexSide = kPatchVertexSide;
     static constexpr std::size_t VertexCount = kPatchVertexCount;
 
-    // Heights are Creation Engine game-unit values in logical, unencoded form.
-    // A disengaged value is a source vertex that remains explicitly missing.
+    //Heights are stored in Creation units before VHGT encoding.
+    // nullopt means that the source height sample is missing.
     std::array<std::optional<double>, VertexCount> heights{};
 };
 
