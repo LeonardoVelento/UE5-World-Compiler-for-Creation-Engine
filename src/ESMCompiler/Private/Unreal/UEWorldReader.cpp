@@ -130,9 +130,8 @@ world_ir::Landscape ReadLandscape(const ALandscapeProxy& landscape) {
         return result;
     }
 
-    // World Partition's root actor can have no local components even while
-    // streaming proxies own the actual heightmap. LandscapeInfo exposes the
-    // authoritative extent of loaded landscape components.
+    // World Partition's root actor can have no local components even while streaming proxies own the actual heightmap.
+    // LandscapeInfo returns the combined bounds of loaded landscape components.
     FIntRect bounds;
     if (!landscapeInfo->GetLandscapeExtent(bounds) ||
         bounds.Max.X < bounds.Min.X || bounds.Max.Y < bounds.Min.Y) {
