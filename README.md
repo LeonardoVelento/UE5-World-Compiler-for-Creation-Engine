@@ -19,11 +19,11 @@ Long term goal of this project is to provide modern level design pipeline (Gaea,
 ---
 # Repository Structure
 
-docs/ -> Project Documentation
-src/ -> Source code
-tests/ -> Unit and integration tests
-samples/ -> Example projects
-tools/ -> Development tools
+- docs/ -> Project Documentation
+- src/ -> Source code
+- tests/ -> Unit and integration tests
+- samples/ -> Example projects
+- tools/ -> Development tools
 
 ---
 # Current Status:
