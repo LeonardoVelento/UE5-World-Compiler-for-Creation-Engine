@@ -1,0 +1,77 @@
+LAND/DATA claim verification report
+This report tests claims against stored plugin bytes only. It can refute a claim with counterexamples, but it cannot prove Creation Kit or runtime behavior.
+LAND records: 52302
+Exactly one DATA: 52302; no DATA: 0; multiple DATA: 0; empty DATA: 0
+
+DATA payload size distribution:
+  4 bytes: 52302 records
+DATA byte 0 distribution:
+  0x9: 354 records
+  0xB: 4 records
+  0xC: 2 records
+  0xD: 3 records
+  0xF: 18 records
+  0x19: 38463 records
+  0x1B: 16 records
+  0x1C: 166 records
+  0x1D: 5739 records
+  0x1E: 3 records
+  0x1F: 7534 records
+
+Claim tests: DATA byte 0 bit <-> subrecord presence
+  mask=0x1, asserted VHGT: consistent-with-corpus
+    set+present=52131, set+absent=0, clear+present=0, clear+absent=171
+  mask=0x2, asserted VCLR: consistent-with-corpus
+    set+present=7575, set+absent=0, clear+present=0, clear+absent=44727
+  mask=0x4, asserted VNML: refuted-by-corpus
+    set+present=13294, set+absent=171, clear+present=38837, clear+absent=0
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B527 CELL=0x0001B511 (0,2) DATA=[0x1E 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B528 CELL=0x0001B508 (2,-2) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B52A CELL=0x0001B501 (-1,-2) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B52C CELL=0x0001B4F4 (0,-2) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B534 CELL=0x0001B4F0 (1,2) DATA=[0x1E 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B535 CELL=0x0001B4EA (-2,0) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B536 CELL=0x0001B4E9 (-2,1) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x0001B537 CELL=0x0001B4E8 (-2,2) DATA=[0x1C 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002741 CELL=0x00001741 (-33,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002742 CELL=0x00001742 (-34,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002743 CELL=0x00001743 (-35,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002744 CELL=0x00001744 (-36,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002745 CELL=0x00001745 (-37,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002746 CELL=0x00001746 (-38,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002747 CELL=0x00001747 (-39,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit clear, subrecord present): Skyrim.esm LAND=0x00002748 CELL=0x00001748 (-40,50) DATA=[0x19 0x00 0x00 0x00]
+  mask=0x8, asserted VTXT: refuted-by-corpus
+    set+present=12116, set+absent=40186, clear+present=0, clear+absent=0
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002741 CELL=0x00001741 (-33,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002742 CELL=0x00001742 (-34,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002743 CELL=0x00001743 (-35,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002744 CELL=0x00001744 (-36,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002745 CELL=0x00001745 (-37,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002746 CELL=0x00001746 (-38,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002747 CELL=0x00001747 (-39,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (bit set, subrecord absent): Skyrim.esm LAND=0x00002748 CELL=0x00001748 (-40,50) DATA=[0x19 0x00 0x00 0x00]
+  mask=0x10 always clear: refuted-by-corpus (set in 51921/52302)
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002741 CELL=0x00001741 (-33,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002742 CELL=0x00001742 (-34,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002743 CELL=0x00001743 (-35,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002744 CELL=0x00001744 (-36,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002745 CELL=0x00001745 (-37,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002746 CELL=0x00001746 (-38,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002747 CELL=0x00001747 (-39,50) DATA=[0x19 0x00 0x00 0x00]
+    counterexample (0x10 set): Skyrim.esm LAND=0x00002748 CELL=0x00001748 (-40,50) DATA=[0x19 0x00 0x00 0x00]
+
+Raw subrecord payload-size distributions:
+  ATXT: 8B=124500
+  BTXT: 8B=43090
+  DATA: 4B=52302
+  VCLR: 3267B=7575
+  VHGT: 1096B=52131
+  VNML: 3267B=52131
+  VTXT: 8B=743 16B=1566 24B=1756 32B=1698 40B=1624 48B=1712 56B=1569 64B=1605 72B=1591 80B=1490 88B=1482 96B=1406 104B=1479 112B=1358 120B=1313 128B=1309 136B=1295 144B=1308 152B=1235 160B=1227 168B=1239 176B=1171 184B=1112 192B=1178 200B=1132 208B=1091 216B=1101 224B=1066 232B=1003 240B=1001 248B=1073 256B=1086 264B=993 272B=1026 280B=1007 288B=1019 296B=936 304B=1011 312B=950 320B=913 328B=958 336B=955 344B=880 352B=927 360B=875 368B=882 376B=859 384B=800 392B=842 400B=881 408B=875 416B=803 424B=860 432B=866 440B=771 448B=783 456B=816 464B=810 472B=769 480B=748 488B=777 496B=830 504B=682 512B=688 520B=760 528B=711 536B=707 544B=773 552B=733 560B=712 568B=729 576B=711 584B=668 592B=724 600B=714 608B=629 616B=708 624B=678 632B=659 640B=642 648B=604 656B=648 664B=617 672B=618 680B=655 688B=616 696B=607 704B=574 712B=600 720B=581 728B=590 736B=546 744B=597 752B=566 760B=534 768B=551 776B=559 784B=557 792B=508 800B=527 808B=498 816B=587 824B=485 832B=503 840B=514 848B=484 856B=513 864B=479 872B=487 880B=491 888B=457 896B=453 904B=455 912B=430 920B=441 928B=450 936B=444 944B=417 952B=420 960B=399 968B=440 976B=447 984B=401 992B=404 1000B=403 1008B=422 1016B=416 1024B=323 1032B=391 1040B=380 1048B=339 1056B=388 1064B=366 1072B=321 1080B=330 1088B=347 1096B=325 1104B=328 1112B=333 1120B=287 1128B=286 1136B=290 1144B=285 1152B=265 1160B=300 1168B=286 1176B=248 1184B=258 1192B=257 1200B=259 1208B=241 1216B=260 1224B=261 1232B=226 1240B=239 1248B=226 1256B=241 1264B=223 1272B=224 1280B=201 1288B=195 1296B=226 1304B=205 1312B=197 1320B=197 1328B=154 1336B=169 1344B=179 1352B=158 1360B=181 1368B=178 1376B=155 1384B=146 1392B=161 1400B=147 1408B=143 1416B=147 1424B=129 1432B=139 1440B=140 1448B=128 1456B=144 1464B=155 1472B=127 1480B=115 1488B=140 1496B=117 1504B=112 1512B=108 1520B=105 1528B=102 1536B=102 1544B=100 1552B=108 1560B=101 1568B=93 1576B=94 1584B=104 1592B=96 1600B=93 1608B=85 1616B=89 1624B=95 1632B=87 1640B=96 1648B=73 1656B=84 1664B=79 1672B=79 1680B=69 1688B=70 1696B=69 1704B=77 1712B=67 1720B=57 1728B=71 1736B=74 1744B=65 1752B=73 1760B=50 1768B=59 1776B=48 1784B=69 1792B=42 1800B=60 1808B=58 1816B=45 1824B=50 1832B=48 1840B=54 1848B=43 1856B=46 1864B=53 1872B=42 1880B=41 1888B=46 1896B=50 1904B=48 1912B=46 1920B=35 1928B=30 1936B=31 1944B=29 1952B=32 1960B=35 1968B=34 1976B=31 1984B=32 1992B=38 2000B=34 2008B=22 2016B=36 2024B=35 2032B=23 2040B=29 2048B=40 2056B=27 2064B=27 2072B=18 2080B=24 2088B=25 2096B=26 2104B=19 2112B=21 2120B=26 2128B=24 2136B=25 2144B=23 2152B=31 2160B=32 2168B=33 2176B=29 2184B=21 2192B=31 2200B=23 2208B=25 2216B=27 2224B=18 2232B=29 2240B=26 2248B=28 2256B=20 2264B=25 2272B=17 2280B=30 2288B=32 2296B=22 2304B=35 2312B=484
+
+VTXT unconfirmed 8-byte-pattern probe
+  payloads=124494, divisible by 8=124494, not divisible=0, candidate chunks=8613067
+  candidate uint16 at offset 0 <= 1088: 8613067; candidate uint16 at offset 2 <= 7: 1657661; equals 0xFFFF: 270076
+  candidate float32 at offset 4 finite: 8613067; finite in [0,1]: 8613067
+  These are raw numerical compatibility checks, not confirmed VTXT field semantics.
