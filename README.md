@@ -91,10 +91,15 @@ Project vision and architectural principles are documented in:
 
 ## Project Status
 
-The project is currently in the design phase.
+The project is in an early Proof of Concept stage. The core architecture has been validated, but only the first compiler modules have been implemented.
 
 RFC-0001 defines the vision, goals, and architectural principles of the framework.
 
-Implementation has not yet started.
-
 Contributions, design discussions, and architecture proposals are welcome.
+
+UE5 Landscape:
+<img width="864" height="733" alt="d7ce340f-dca3-450c-9599-bdca1bff2427 (1)" src="https://github.com/user-attachments/assets/3a65aba3-d827-4222-a71a-576fc944ba30" />
+
+CK Landscape:
+<img width="717" height="584" alt="0e288bf2-7a17-4ab2-ad18-888938861928 (1)" src="https://github.com/user-attachments/assets/e3dcf8b2-2ff5-4902-92cb-f28f4250a48d" />
+
