@@ -6,8 +6,7 @@
 #include <unordered_map>
 #include <vector>
 
-// Owns the generated logical records for one compilation and exposes the
-// read-only lookup contract used by the worldspace GRUP serializer.
+// Stores records created during one export. GRUP writing uses it for lookups.
 class GeneratedRecordRepository final : public IGeneratedRecordRepository {
 public:
     GeneratedRecordRepository(std::vector<ExteriorCellRecord> cells,
