@@ -8,7 +8,10 @@ namespace {
 constexpr std::uint32_t kHasVertexNormalsAndHeightMap = 0x01;
 constexpr std::uint32_t kHasVertexColors = 0x02;
 constexpr std::uint32_t kHasLayers = 0x04;
+// Bit 0x08 appeared in every LAND record in the analysed CK corpus.
 constexpr std::uint32_t kObservedUnknownBit08 = 0x08;
+// xEdit labels bit 0x10 as Auto-Calc Normals.
+// Its exact behaviour is not confirmed, but CK accepts it in generated LAND.
 constexpr std::uint32_t kAutoCalcNormals = 0x10;
 
 constexpr bool HasEveryHeight(const LandTile& tile) noexcept {
