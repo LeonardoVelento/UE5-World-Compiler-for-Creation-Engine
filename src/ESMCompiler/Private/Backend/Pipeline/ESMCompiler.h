@@ -9,8 +9,7 @@
 #include <functional>
 #include <optional>
 
-// Explicit settings for all exterior-world work. The backend deliberately
-// does not choose a unit scale or exterior CELL size on behalf of a project.
+// Settings needed to turn a landscape into exterior CELLs.
 struct ExteriorWorldCompilationSettings {
     CreationTransformSettings transformSettings{
         .unitScale = 0.0,
@@ -39,8 +38,7 @@ enum class ESMCompilationStage {
 
 using ESMCompilationProgressCallback = std::function<void(ESMCompilationStage)>;
 
-// Engine-independent compiler backend. It consumes World IR and writes an ESM;
-// it never includes or accesses Unreal Engine types.
+// Writes an ESM from World IR. This class does not include Unreal headers.
 class ESMCompiler final {
 public:
     explicit ESMCompiler(ESMCompilerOptions options);
