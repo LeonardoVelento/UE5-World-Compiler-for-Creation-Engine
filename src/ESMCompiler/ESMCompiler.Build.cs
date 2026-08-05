@@ -8,9 +8,8 @@ public class ESMCompiler : ModuleRules
         CppStandard = CppStandardVersion.Cpp20;
         bEnableExceptions = true;
 
-        // Backend files are organized by compiler responsibility.  Keep these
-        // paths explicit so existing short includes (for example "LandIR.h")
-        // remain valid after the physical source-file split.
+// These paths keep short includes such as "LandIR.h" working after
+// the backend was split into folders.
         PrivateIncludePaths.AddRange(new string[]
         {
             System.IO.Path.Combine(ModuleDirectory, "Private"),
@@ -22,7 +21,6 @@ public class ESMCompiler : ModuleRules
             System.IO.Path.Combine(ModuleDirectory, "Private", "Backend", "WRLD"),
             System.IO.Path.Combine(ModuleDirectory, "Private", "Backend", "Cell"),
             System.IO.Path.Combine(ModuleDirectory, "Private", "Backend", "Land"),
-            System.IO.Path.Combine(ModuleDirectory, "Private", "Backend", "References"),
             System.IO.Path.Combine(ModuleDirectory, "Private", "Backend", "Pipeline")
         });
 
