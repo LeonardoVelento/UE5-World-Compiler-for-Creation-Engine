@@ -1,6 +1,6 @@
 This directory contains project documentation as:
 
-- Reverse Engineering reports, progress and current hypothesis used in compiler
+- Format-analysis reports, progress and current hypotheses used in compiler
 - Unreal Engine Frontend architecture
 - World IR and Coordinates
 - Backend Pipeline 
